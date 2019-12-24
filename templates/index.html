@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='style.css')}}">
+    <meta charset="utf-8">
+    <title>{{ name }}'s Hero List</title>
+</head>
+<body>
+	<img alt="Avatar" class="avatar" src="{{ url_for('static', filename='images/avatar.png') }}">
+    <h2>League Of Legends</h2>
+    {# 使用 length 过滤器获取 heros 变量的长度 #}
+    <p>{{ heros|length }} Titles</p>
+    <ul>
+        {% for hero in heros %}  {# 迭代 heros 变量 #}
+        <li>{{ hero.title }} - {{ hero.name }}</li> 
+        {% endfor %}  {# 使用 endfor 标签结束 for 语句 #}
+    </ul>
+    <img alt="Walking Totoro" src="{{url_for('static',filename='images/totoro.gif')}}">
+    <footer>
+        <small>&copy; 2018</small>
+    </footer>
+</body>
+</html>
